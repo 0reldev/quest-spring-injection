@@ -23,7 +23,6 @@ public class WizardController {
     public String getAll(Model model) {
 
         model.addAttribute("wizards", repository.findAll());
-
         return "wizards";
     }
 
@@ -33,10 +32,10 @@ public class WizardController {
 
         Wizard wizard = new Wizard();
         if (id != null) {
+
             wizard = repository.findById(id);
         }
         model.addAttribute("wizard", wizard);
-
         return "wizard";
     }
 
@@ -44,8 +43,10 @@ public class WizardController {
     public String postWizard(@ModelAttribute Wizard wizard) {
 
         if (wizard.getId() != null) {
+
             repository.update(wizard);
         } else {
+
             repository.save(wizard);
         }
         return "redirect:/wizards";
@@ -55,7 +56,6 @@ public class WizardController {
     public String deleteWizard(@RequestParam Long id) {
 
         repository.deleteById(id);
-
         return "redirect:/wizards";
     }
 

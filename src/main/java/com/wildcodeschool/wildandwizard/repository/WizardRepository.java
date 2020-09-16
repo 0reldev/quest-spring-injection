@@ -46,7 +46,9 @@ public class WizardRepository implements WizardDao {
     public Wizard update(Wizard wizard) {
 
         for (Wizard update : wizards) {
+
             if (update.getId().equals(wizard.getId())) {
+
                 update.setFirstName(wizard.getFirstName());
                 update.setLastName(wizard.getLastName());
                 update.setBirthday(wizard.getBirthday());
@@ -64,7 +66,9 @@ public class WizardRepository implements WizardDao {
     public void deleteById(Long id) {
 
         for (Wizard wizard : wizards) {
+
             if (wizard.getId().equals(id)) {
+
                 wizards.remove(wizard);
                 break;
             }
